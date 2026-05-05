@@ -3,7 +3,7 @@
 A Chrome Extension that extracts content from any webpage and uses AI to generate a structured summary with key insights and estimated reading time.
 
 ## Demo
-[Add your 2-5 minute video link here]
+https://youtu.be/4GjsSr6C7FQ
 
 ## Features
 - One-click page summarization
