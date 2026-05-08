@@ -28,10 +28,6 @@ app.post('/summarize', async (req, res) => {
     }
 
     try {
-        // dynamic import for node-fetch is needed because node-fetch v3 is an ES module
-        // and we initialized the project as CommonJS. Alternatively we could use native fetch if Node version >= 18.
-        const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-        
         const response = await fetch(GROQ_URL, {
             method: 'POST',
             headers: {
@@ -66,8 +62,9 @@ READING TIME: [estimated minutes] min read`
         const data = await response.json();
 
         if (!response.ok) {
-            console.error('Groq API Error:', data);
-            throw new Error(`Groq API scale failed: ${response.status} ${response.statusText}`);
+            console.error('Groq API Error Status:', response.status);
+            console.error('Groq API Error Body:', data);
+            throw new Error(`Groq API failed: ${response.status} ${response.statusText}`);
         }
 
         res.json({ success: true, summary: data.choices[0].message.content });

@@ -4,10 +4,10 @@
     --surface-border: rgba(255, 255, 255, 0.1);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-color: #a855f7;
-    --accent-hover: #9333ea;
+    --accent-color: #ef4444;
+    --accent-hover: #dc2626;
     --danger-bg: rgba(239, 68, 68, 0.1);
-    --danger-color: #ef4444;
+    --danger-color: #f87171;
 }
 
 * {
@@ -46,8 +46,8 @@ body {
 }
 
 .logo svg {
-    color: #a855f7;
-    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
+    color: #ef4444;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.5));
 }
 
 h1 {
@@ -105,7 +105,7 @@ h1 {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #a855f7;
+    color: #ef4444;
     margin-top: 16px;
     margin-bottom: 8px;
     display: flex;
@@ -118,9 +118,9 @@ h1 {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #a855f7;
+    background: #ef4444;
     margin-right: 8px;
-    box-shadow: 0 0 6px #a855f7;
+    box-shadow: 0 0 6px #ef4444;
 }
 
 #summary-output h3:first-child {
@@ -155,9 +155,9 @@ h1 {
     height: 32px;
     border-radius: 50%;
     border: 3px solid var(--surface-border);
-    border-top: 3px solid #a855f7;
+    border-top: 3px solid #ef4444;
     animation: spin 1s linear infinite;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
 }
 
 #loading p {
@@ -207,13 +207,13 @@ button:focus {
 .btn-primary {
     background: var(--accent-color);
     color: white;
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2);
 }
 
 .btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
 }
 
 .btn-primary:active {

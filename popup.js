@@ -37,7 +37,7 @@ summarizeBtn.addEventListener('click', async () => {
 
         // get page content from content.js
         const pageData = await getContentFromTab(tab.id)
-
+console.log('Step 3 - sending to background...')
         // send to background.js to call Groq
         const result = await chrome.runtime.sendMessage({
             action: 'summarize',
@@ -47,6 +47,8 @@ summarizeBtn.addEventListener('click', async () => {
         })
 
         if (!result.success) throw new Error(result.error)
+
+            console.log('Step 4 - got result:', result)
 
         // format and display summary
         const formatted = result.summary

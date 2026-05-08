@@ -11,6 +11,9 @@
         "scripting",
         "storage"
     ],
+    "host_permissions": [
+        "http://localhost:4000/*"
+    ],
     "background": {
         "service_worker": "background.js"
     }

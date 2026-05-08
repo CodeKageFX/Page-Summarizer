@@ -2,9 +2,18 @@ const PROXY_URL = 'http://localhost:4000/summarize'
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'summarize') {
+
+        console.log('Starting Groq call...')
         summarizeWithProxy(message.title, message.content, message.url)
-            .then(summary => sendResponse({ success: true, summary }))
-            .catch(err => sendResponse({ success: false, error: err.message }))
+            .then(summary => {
+                console.log('Groq succeeded')
+                sendResponse({ success: true, summary })}
+            )
+            
+            .catch(err => {
+                console.log('Groq failed:', err.message)
+                sendResponse({ success: false, error: err.message })
+            })
         return true
     }
 })
@@ -12,6 +21,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 async function summarizeWithProxy(title, content, url) {
     const cached = await getCached(url)
     if (cached) return cached
+
+    console.log('Content length:', content.length)
+    console.log('Calling Groq...')
 
     const response = await fetch(PROXY_URL, {
         method: 'POST',
@@ -24,6 +36,7 @@ async function summarizeWithProxy(title, content, url) {
         })
     })
 
+    console.log('Groq status:', response.status)
     const data = await response.json()
 
     if (!response.ok) throw new Error(data.error || `Server error: ${response.status}`)
